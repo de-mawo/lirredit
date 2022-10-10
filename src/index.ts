@@ -12,7 +12,7 @@ import { MyContext } from "./types";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import cors from "cors";
 import AppDataSource from "./typeorm.config";
-import { Post } from "./entities/Post";
+// import { Post } from "./entities/Post";
 // import { SendEmail } from "./utils/sendEmail";
 
 
@@ -21,13 +21,14 @@ let RedisStore = require("connect-redis")(session);
 const main = async () => {
 
   // SendEmail("demawo@inogital.com", "Ko Ndochii ichocho")
-AppDataSource.initialize().then(() => {
+await AppDataSource.initialize().then(() => {
   console.log("Data Source has been initialized!")
 })
 .catch((err) => {
   console.error("Error during Data Source initialization", err)
 })
 
+await AppDataSource.runMigrations();
 
 
   const app = express();
