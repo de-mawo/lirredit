@@ -2,6 +2,7 @@ import { DataSource } from "typeorm";
 import { Post } from "./entities/Post";
 import { User } from "./entities/User";
 import path from 'path'
+import { Updoot } from "./entities/Updoot";
 
 
 
@@ -16,7 +17,7 @@ const AppDataSource = new DataSource({
     logging: true,
     synchronize: true,
     entities: [
-       Post, User
+       Post, User, Updoot
     ],
    migrations: [ path.join(__dirname, "./migrations/*") ],
 

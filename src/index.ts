@@ -30,6 +30,8 @@ await AppDataSource.initialize().then(() => {
 
 await AppDataSource.runMigrations();
 
+// await Post.delete({})
+
 
   const app = express();
  
